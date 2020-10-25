@@ -1,15 +1,8 @@
 @import './constants.scss';
 
-.container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .main {
+  margin: 0 auto;
+  max-width: $max-width;
   margin-top: 70px;
 }
 
@@ -17,8 +10,6 @@
   display: flex;
   align-items: center;
   min-height: 192px;
-  margin: 0 auto;
-  max-width: $max-width;
 
   .pageTitle {
     font-family: Calibre, sans-serif;

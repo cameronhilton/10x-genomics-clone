@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Header from '../components/Header';
+import Results from '../components/Results';
 import Search from '../components/Search';
 import styles from '../styles/Home.module.scss';
 
@@ -19,6 +20,7 @@ export default function Home() {
         </div>
 
         <Search />
+        <Results dataSource='query_data.json'/>
       </main>
 
     </div>

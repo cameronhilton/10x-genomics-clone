@@ -21,6 +21,7 @@
     font-family: Calibre, sans-serif;
     font-size: 1.5rem;
     color: $light-blue;
+    flex-grow: 1;
 
     &::placeholder {
       width: 100%;

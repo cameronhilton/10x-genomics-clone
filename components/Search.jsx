@@ -21,9 +21,6 @@ export default class Search extends React.Component {
             value={query}
             onChange={(e) => this.setState({query: e.target.value})}
           />
-          {
-            query && <span className={styles.clearIcon} onClick={() => this.setState({query: ''})}>X</span>
-          }
         </form>
       </div>
     );

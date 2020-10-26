@@ -5,5 +5,18 @@
     padding: 1.5rem;
     background-color: $light-bg;
     color: $light-text;
+
+    .facets {
+      display: flex;
+      justify-content: space-between;
+
+      .facetTypeContainer {
+        margin: 16px 0;
+
+        .facetType {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
   }
 }

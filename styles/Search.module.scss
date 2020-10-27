@@ -19,13 +19,13 @@
     padding: 5px;
     border: none;
     font-family: Calibre, sans-serif;
-    font-size: 1.5rem;
-    color: $light-blue;
+    font-size: 1.4rem;
+    font-weight: bold;
     flex-grow: 1;
 
     &::placeholder {
       width: 100%;
-      color: $light-blue;
+      color: $lighter-text;
       opacity: 1; // firefox
     }
   }

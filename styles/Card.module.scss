@@ -1,12 +1,12 @@
 @import './constants.scss';
 
 .card {
-  list-style: none;
   display: flex;
   justify-content: space-between;
   border: 1px solid $light-border;
   padding: 1.5rem 2rem;
   margin-bottom: 0.5rem;
+  line-height: 1.333;
 
   .articleInfo {
     display: flex;
@@ -15,14 +15,42 @@
     width: 100%;
     max-width: 672px;
     min-height: 192px;
+    color: $lighter-text;
+
+    .articleTitle {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: $dark-text;
+    }
+
+    cite span:first-child {
+      margin-right: 2rem;
+    }
   }
 
   .hitInfo {
     padding-left: 128px;
     width: 40%;
+
+    .hitType {
+      margin-bottom: 1rem;
+
+      .hitTypeTitle {
+        margin-bottom: 0.25rem;
+      }
+
+      .hitTypeItem {
+        color: $medium-text;
+      }
+    }
   }
 
   a {
     text-decoration: underline;
+    font-style: normal;
+
+    &:hover {
+      color: $dark-text;
+    }
   }
 }

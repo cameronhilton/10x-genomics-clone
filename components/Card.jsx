@@ -16,6 +16,17 @@ const getJournalDate = (date, ePubDate) => {
   return dateStr;
 };
 
+// Info displayed on right side of Card
+const Hits = ({ hitList, title }) => (
+  <li className={styles.hitType}>
+    <div className={styles.hitTypeTitle}>{title.toLocaleUpperCase()}</div>
+    {hitList.map((val, idx) =>
+      <div key={val} className={styles.hitTypeItem}>
+        {val}{idx < hitList.length - 1 && ','}
+      </div>)}
+  </li>
+);
+
 const Card = ({ card }) => {
   const journalDate = getJournalDate(card.date, card.ePubDate);
 
@@ -23,16 +34,36 @@ const Card = ({ card }) => {
     <li className={styles.card}>
       <div className={styles.articleInfo}>
         <div>{card.journal}, {journalDate}</div>
-        <div>{card.title}</div>
+        <div className={styles.articleTitle}>{card.title}</div>
         <div>{card.productGroups ? card.productGroups[0] : 'No product group given'}</div>
-        <div>
-          {card.doi &&
-            <a href={`https://doi.org/${card.doi}`}>{`DOI: ${card.doi}`}</a>}
-        </div>
+        <cite>
+          <span>
+            {card.doi &&
+              <a
+                href={`https://doi.org/${card.doi}`}
+                rel='noopener noreferrer'
+                target='_blank'
+              >
+                {`DOI: ${card.doi}`}
+              </a>}
+          </span>
+          <span>
+            {card.pmid &&
+              <a
+                href={`https://pubmed.ncbi.nlm.nih.gov/${card.pmid}`}
+                rel='noopener noreferrer'
+                target='_blank'
+              >
+                {`PubMed: ${card.pmid}`}
+              </a>}
+          </span>
+        </cite>
       </div>
-      <div className={styles.hitInfo}>
-            HITS
-      </div>
+      <ul className={styles.hitInfo}>
+        {card.tags && <Hits hitList={card.tags} title='TAGS' />}
+        {card.species && <Hits hitList={card.species} title='SPECIES' />}
+        {card.tissueTypes && <Hits hitList={card.tissueTypes} title='SAMPLE TYPES' />}
+      </ul>
     </li>
   );
 }

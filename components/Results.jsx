@@ -18,11 +18,11 @@ const Results = ({ data }) => {
           <FacetList facets={facets.productGroups} title='10X GENOMICS PRODUCT' />
         </div>
       </section>
-      <section className={styles.cards}>
+      <section>
         <div className={styles.cardHeader}>
           <div>{nbHits} RESULTS</div>
         </div>
-        <ul className={styles.cardsList}>
+        <ul>
           {
             Object.keys(hits).map(hit => (
               <Card key={hits[hit].objectID} card={hits[hit]} />

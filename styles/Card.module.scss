@@ -1,0 +1,28 @@
+@import './constants.scss';
+
+.card {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid $light-border;
+  padding: 1.5rem 2rem;
+  margin-bottom: 0.5rem;
+
+  .articleInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 672px;
+    min-height: 192px;
+  }
+
+  .hitInfo {
+    padding-left: 128px;
+    width: 40%;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}

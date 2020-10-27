@@ -35,8 +35,8 @@ const Card = ({ card }) => {
       <div className={styles.articleInfo}>
         <div>{card.journal}, {journalDate}</div>
         <div className={styles.articleTitle}>{card.title}</div>
-        <div>{card.productGroups ? card.productGroups[0] : 'No product group given'}</div>
         <cite>
+          <div>{card.productGroups ? card.productGroups[0] : 'No product group given'}</div>
           <span>
             {card.doi &&
               <a

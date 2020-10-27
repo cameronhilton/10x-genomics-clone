@@ -22,7 +22,7 @@ const Results = ({ data }) => {
         <div className={styles.cardHeader}>
           <div>{nbHits} RESULTS</div>
         </div>
-        <ul>
+        <ul className={styles.cards}>
           {
             Object.keys(hits).map(hit => (
               <Card key={hits[hit].objectID} card={hits[hit]} />

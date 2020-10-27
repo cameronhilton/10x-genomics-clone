@@ -10,8 +10,8 @@ export default class Search extends React.Component {
     const { query } = this.state;
 
     return (
-      <div className={styles.search}>
-        <form>
+      <form>
+        <div className={styles.search}>
           <span className={styles.searchIcon}>&#128269;</span>
           <input
             className={styles.searchBox}
@@ -21,8 +21,8 @@ export default class Search extends React.Component {
             value={query}
             onChange={(e) => this.setState({query: e.target.value})}
           />
-        </form>
-      </div>
+        </div>
+      </form>
     );
   }
 

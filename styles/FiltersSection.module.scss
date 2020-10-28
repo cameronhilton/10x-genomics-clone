@@ -1,0 +1,31 @@
+@import './constants.scss';
+
+.filters {
+  padding: 1.5rem;
+  background-color: $light-bg;
+
+  .facets {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .filtersButtonContainer {
+    padding-top: 1rem;
+    border-top: 1px solid $dark_border;
+
+    .filtersButton {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: $btn-text;
+      font-size: 1.125rem;
+      font-weight: light;
+
+      &::first-letter {
+        font-weight: 900;
+        font-size: 1.5rem;
+        letter-spacing: 0.2rem;
+      }
+    }
+  }
+}

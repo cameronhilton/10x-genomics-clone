@@ -6,11 +6,16 @@ const INITIAL_STATE = {
 
 const publicationsReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
+    case(PublicationsActionTypes.UPDATE_FACETS):
+      return {
+        ...state,
+        facets: action.payload,
+      };
     case(PublicationsActionTypes.UPDATE_PUBLICATIONS):
       return {
         ...state,
         ...action.payload,
-      }
+      };
     default:
       return state;
   };

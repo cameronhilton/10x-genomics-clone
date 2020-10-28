@@ -2,22 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { updatePublications } from '../redux/publications/publications.actions';
-import { selectFacets, selectPublications } from '../redux/publications/publications.selectors';
+import { selectPublications } from '../redux/publications/publications.selectors';
 import Card from './Card';
-import FacetList from './FacetList';
+import FiltersSection from './FiltersSection';
 import styles from '../styles/Results.module.scss'
 
 class Results extends React.Component {
   componentDidMount() {
-    const { updatePublications } = this.props;
+    const { dataSource, updatePublications } = this.props;
 
-    fetch(this.props.dataSource)
+    fetch(dataSource)
       .then(response => response.json())
-      .then(data => {updatePublications(data.results[0])});
+      .then(data => updatePublications(data.results[0]));
   }
 
   render() {
-    const { publications, facets } = this.props;
+    const { publications } = this.props;
 
     if (!publications.nbHits) {
       return <div>LOADING</div>;
@@ -27,15 +27,7 @@ class Results extends React.Component {
 
     return (
       <div className={styles.results}>
-        <section className={styles.stats}>
-          <div className={styles.facets}>
-            <FacetList facets={facets.tags} title='TAGS' />
-            <FacetList facets={facets.species} title='SPECIES' />
-            <FacetList facets={facets.tissueTypes} title='TISSUE TYPE' />
-            <FacetList facets={facets.journal} title='JOURNAL' />
-            <FacetList facets={facets.productGroups} title='10X GENOMICS PRODUCT' />
-          </div>
-        </section>
+        <FiltersSection />
         <section>
           <div className={styles.cardHeader}>
             <div>{nbHits} RESULTS</div>
@@ -55,7 +47,6 @@ class Results extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   publications: selectPublications,
-  facets: selectFacets,
 });
 
 const mapDispatchToProps = dispatch => ({

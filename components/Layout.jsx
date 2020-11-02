@@ -1,4 +1,3 @@
-// import React from "react";
 import { withRedux } from "../utils/with-redux-store";
 
 function Layout({ children }) {

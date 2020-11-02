@@ -3,11 +3,17 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { updatePublications } from '../redux/publications/publications.actions';
 import { selectPublications } from '../redux/publications/publications.selectors';
-import Card from './Card';
+import PublicationCard from './PublicationCard';
+import PublicationModal from './PublicationModal';
 import FiltersSection from './FiltersSection';
 import styles from '../styles/Results.module.scss'
 
 class Results extends React.Component {
+  state = {
+    showModal: false,
+    publication: null,
+  }
+
   componentDidMount() {
     const { dataSource, updatePublications } = this.props;
 
@@ -16,8 +22,22 @@ class Results extends React.Component {
       .then(data => updatePublications(data.results[0]));
   }
 
+  closePublicationModal = () => {
+    this.setState(() => ({
+      showModal: false,
+    }));
+  }
+
+  showPublicationModal = (hit) => {
+    this.setState(() => ({
+      showModal: true,
+      publication: hit,
+    }));
+  }
+
   render() {
     const { publications } = this.props;
+    const { publication, showModal } = this.state;
 
     if (!publications.nbHits) {
       return <div>LOADING</div>;
@@ -35,11 +55,16 @@ class Results extends React.Component {
           <ul className={styles.cards}>
             {
               Object.keys(hits).map(hit => (
-                <Card key={hits[hit].objectID} card={hits[hit]} />
+                <PublicationCard
+                  key={hits[hit].objectID}
+                  publication={hits[hit]}
+                  showPublicationModal={this.showPublicationModal}
+                />
               ))
             }
           </ul>
         </section>
+        { showModal && <PublicationModal publication={publication} closePublicationModal={this.closePublicationModal}/> }
       </div>
     )
   }

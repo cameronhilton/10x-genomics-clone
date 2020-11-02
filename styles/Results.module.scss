@@ -2,11 +2,17 @@
 
 .results {
   .cardHeader {
-    padding: 1rem 2rem;
+    padding: 1rem 0rem;
   }
 
   .cards {
-    padding: 0 2rem;
+    padding: 0;
     margin-top: 0;
+  }
+
+  @media screen and (max-width: $content-max-width) {
+    .cardHeader {
+      padding: 1rem 1.5rem;
+    }
   }
 }

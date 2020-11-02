@@ -2,7 +2,7 @@
 
 .main {
   margin: 0 auto;
-  max-width: $max-width;
+  max-width: $content-max-width;
   margin-top: 70px;
 }
 
@@ -10,11 +10,19 @@
   display: flex;
   align-items: center;
   min-height: 192px;
-  padding-left: 2rem;
 
   .pageTitle {
     font-weight: 600;
     font-size: 4rem;
     color: $dark-text;
+  }
+
+  @media screen and (max-width: $card-max-width) {
+    min-height: 0;
+    padding: $collapsed-padding;
+
+    .pageTitle {
+      font-size: 3rem;
+    }
   }
 }

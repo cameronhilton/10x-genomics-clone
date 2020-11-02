@@ -23,8 +23,16 @@
       color: $dark-text;
     }
 
-    cite:first-of-type span {
+    cite span:first-of-type {
       margin-right: 2rem;
+    }
+
+    // Space out DOI and PubMed citations
+    @media screen and (max-width: $card-max-width) {
+      cite:last-of-type span:first-of-type {
+        display: block;
+        margin: 1rem 0;
+      }
     }
   }
 
@@ -51,6 +59,12 @@
 
     &:hover {
       color: $dark-text;
+    }
+  }
+
+  @media screen and (max-width: $card-max-width) {
+    .hitInfo {
+      display: none;
     }
   }
 }

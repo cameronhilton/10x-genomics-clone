@@ -29,11 +29,18 @@ const Hits = ({ hitList, title }) => (
 
 const Card = ({ card }) => {
   const journalDate = getJournalDate(card.date, card.ePubDate);
+  const author = card.authors?.[0];
 
   return (
     <li className={styles.card}>
       <div className={styles.articleInfo}>
-        <div>{card.journal}, {journalDate}</div>
+        <cite>
+          <span>{card.journal}, {journalDate}</span>
+          <span>{author &&
+            `${typeof author === 'string' ? author : author.foreName || ''} ${author.lastName || ''}`}
+            {card.authors?.length > 1 && ' et al.'}
+          </span>
+        </cite>
         <div className={styles.articleTitle}>{card.title}</div>
         <cite>
           <div>{card.productGroups ? card.productGroups[0] : 'No product group given'}</div>

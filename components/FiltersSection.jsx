@@ -40,7 +40,7 @@ class FiltersSection extends React.Component {
           <FacetList expanded={filterMenuExpanded} facets={facets.species} title='SPECIES' />
           <FacetList expanded={filterMenuExpanded} facets={facets.tissueTypes} title='TISSUE TYPE' />
           <FacetList expanded={filterMenuExpanded} facets={facets.journal} title='JOURNAL' />
-          <FacetList expanded={filterMenuExpanded} facets={facets.productGroups} title='10X GENOMICS PRODUCT' />
+          <FacetList expanded={filterMenuExpanded} facets={facets.productGroups} title='0.1X GENOMICS PRODUCT' />
         </div>
         <div className={styles.filtersButtonContainer}>
           <button

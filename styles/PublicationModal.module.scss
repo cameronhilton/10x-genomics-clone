@@ -1,0 +1,32 @@
+@import './constants.scss';
+
+.publicationModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 5rem;
+  background-color: $modal-bg;
+  overflow-y: auto;
+
+  .closeBtn {
+    position: absolute;
+    top: 6rem;
+    right: 6rem;
+    font-size: 1.8rem;
+    color: $btn-text;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: $card-max-width) {
+    padding: 0;
+
+    .closeBtn {
+      top: 2rem;
+      right: 2rem;
+    }
+  }
+}
